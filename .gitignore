@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+.DS_Store
+data/raw/*.json
+data/processed/*.jsonl
+data/chroma/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/chroma/.gitkeep

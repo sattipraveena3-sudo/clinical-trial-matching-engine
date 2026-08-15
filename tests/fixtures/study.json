@@ -1,0 +1,13 @@
+{
+  "protocolSection": {
+    "identificationModule": {"nctId": "NCT01234567", "briefTitle": "Cardiometabolic Study in Type 2 Diabetes", "officialTitle": "A Study of Cardiovascular Outcomes in Adults With Type 2 Diabetes"},
+    "statusModule": {"overallStatus": "RECRUITING", "studyFirstSubmitDate": "2025-01-02"},
+    "descriptionModule": {"briefSummary": "Evaluates cardiovascular outcomes in adults with type 2 diabetes.", "detailedDescription": "Participants receive standard care and longitudinal cardiovascular monitoring."},
+    "conditionsModule": {"conditions": ["Type 2 Diabetes", "Cardiovascular Disease"], "keywords": ["cardiology", "diabetes"]},
+    "designModule": {"studyType": "INTERVENTIONAL", "phases": ["PHASE3"]},
+    "eligibilityModule": {"eligibilityCriteria": "Inclusion: adults with type 2 diabetes. Exclusion: pregnancy.", "sex": "ALL", "minimumAge": "40 Years", "maximumAge": "75 Years", "healthyVolunteers": false},
+    "contactsLocationsModule": {"locations": [{"facility": "Austin Research Center", "city": "Austin", "state": "Texas", "zip": "78701", "country": "United States", "geoPoint": {"lat": 30.2672, "lon": -97.7431}}]},
+    "sponsorCollaboratorsModule": {"leadSponsor": {"name": "Example University"}},
+    "armsInterventionsModule": {"interventions": [{"type": "DRUG", "name": "Investigational Therapy"}]}
+  }
+}

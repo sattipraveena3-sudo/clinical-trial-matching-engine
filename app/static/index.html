@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Trial Matching Engine</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="shell">
+      <span class="eyebrow">Biomedical AI · Local RAG</span>
+      <h1>Clinical Trial Matching Engine</h1>
+      <p>Search public ClinicalTrials.gov studies using semantic retrieval and transparent structured filters.</p>
+    </div>
+  </header>
+  <main class="shell layout">
+    <section class="panel search-panel">
+      <form id="match-form">
+        <label for="query">Patient description</label>
+        <textarea id="query" required placeholder="55 year old female, type 2 diabetic, looking for cardiology trials near Texas"></textarea>
+        <div class="filters">
+          <label>Age<input id="age" type="number" min="0" max="125" placeholder="55"></label>
+          <label>Condition<input id="condition" type="text" placeholder="Type 2 diabetes"></label>
+          <label>Location<input id="location" type="text" placeholder="Texas"></label>
+          <label>Status
+            <select id="status">
+              <option value="">Any status</option>
+              <option value="RECRUITING">Recruiting</option>
+              <option value="NOT_YET_RECRUITING">Not yet recruiting</option>
+              <option value="ENROLLING_BY_INVITATION">Enrolling by invitation</option>
+              <option value="ACTIVE_NOT_RECRUITING">Active, not recruiting</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit">Find matching trials</button>
+      </form>
+      <p class="disclaimer">Research demonstration only. Do not use this tool for medical decisions or submit identifiable patient information.</p>
+    </section>
+    <section id="results" class="results" aria-live="polite">
+      <div class="empty-state"><h2>Ready to search</h2><p>Describe a hypothetical, de-identified profile to retrieve relevant studies.</p></div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

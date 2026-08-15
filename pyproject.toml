@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clinical-trial-matching-engine"
+version = "1.0.0"
+description = "Local RAG system for matching de-identified profiles to public clinical trials"
+requires-python = ">=3.11,<3.14"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
