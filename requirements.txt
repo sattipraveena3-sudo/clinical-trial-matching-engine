@@ -1,10 +1,23 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 fastapi==0.139.2
 uvicorn[standard]==0.35.0
 httpx==0.28.1
 socksio==1.0.0
-pydantic==2.11.7
-pydantic-settings==2.10.1
+
+# These versions have pre-built CPython 3.11/3.12 Windows wheels. Keeping
+# pydantic-core explicit prevents pip from selecting an unavailable build.
+pydantic==2.10.6
+pydantic-core==2.27.2
+pydantic-settings==2.7.1
+
+# Use CPU-only Torch on Windows/Linux so local setup does not pull multi-GB
+# CUDA packages. macOS PyTorch wheels do not use the +cpu version suffix.
+torch==2.7.1+cpu; sys_platform != "darwin"
+torch==2.7.1; sys_platform == "darwin"
 sentence-transformers==5.6.1
+transformers==4.57.1
+
 chromadb==1.5.9
 numpy==2.2.6
 pytest==8.4.1

@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "clinical-trial-matching-engine"
 version = "1.0.0"
 description = "Local RAG system for matching de-identified profiles to public clinical trials"
-requires-python = ">=3.11,<3.14"
+requires-python = ">=3.11,<3.13"
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

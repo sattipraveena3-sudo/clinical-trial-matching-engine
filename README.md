@@ -47,22 +47,47 @@ data/chroma/            persistent vector database
 
 ## Local setup
 
-Python 3.11 or 3.12 is recommended.
+Use 64-bit Python 3.11 or 3.12. The bootstrap script creates or repairs
+`.venv`, upgrades pip, installs a CPU-only PyTorch build, installs binary
+Pydantic dependencies from official PyPI, creates `.env`, and validates the
+important imports.
+
+### Windows PowerShell
+
+```powershell
+git clone https://github.com/sattipraveena3-sudo/clinical-trial-matching-engine.git
+cd clinical-trial-matching-engine
+py -3.12 scripts\setup_local.py
+
+# Run these as two separate commands.
+.venv\Scripts\python.exe scripts\refresh_trials.py --max-studies 50
+.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+```
+
+If you already cloned the repository and an earlier installation stopped with
+`No matching distribution found for pydantic-core`, repair it with:
+
+```powershell
+git pull
+py -3.12 scripts\setup_local.py
+```
+
+There is no need to delete the existing `.venv`; the bootstrap repairs it.
+
+### macOS or Linux
 
 ```bash
 git clone https://github.com/sattipraveena3-sudo/clinical-trial-matching-engine.git
 cd clinical-trial-matching-engine
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env            # Windows PowerShell: Copy-Item .env.example .env
-python scripts/refresh_trials.py --max-studies 1000
-uvicorn app.main:app --reload
+python3.12 scripts/setup_local.py
+.venv/bin/python scripts/refresh_trials.py --max-studies 50
+.venv/bin/python -m uvicorn app.main:app --reload
 ```
 
-Open `http://localhost:8000`. API documentation is available at `http://localhost:8000/docs`.
-
-The first refresh downloads the embedding model and may take several minutes. To run a small smoke test, use `--max-studies 50`.
+The first refresh downloads the embedding model and may take several minutes.
+The refresh command must finish before starting Uvicorn; do not combine the two
+commands on one line. After Uvicorn starts, open `http://localhost:8000`. API
+documentation is available at `http://localhost:8000/docs`.
 
 ## Docker
 
